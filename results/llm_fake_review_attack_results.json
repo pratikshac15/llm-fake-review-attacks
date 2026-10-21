@@ -1,0 +1,71 @@
+{
+  "config": {
+    "detector": "distilroberta-base",
+    "llm": "Qwen/Qwen2.5-1.5B-Instruct",
+    "train_size": 16000,
+    "epochs": 1,
+    "max_len": 128,
+    "batch": 32,
+    "lr": 3e-05,
+    "attack_n": 300,
+    "adv_train_n": 1000,
+    "llm_tries": 3,
+    "word_budget": 0.2
+  },
+  "tfidf_clean": {
+    "accuracy": 0.9430763519366415,
+    "precision": 0.9542915185373286,
+    "recall": 0.9306587419514611,
+    "f1": 0.9423269809428285,
+    "pr_auc": 0.9876377421620154
+  },
+  "detector_clean": {
+    "accuracy": 0.9618859052097513,
+    "precision": 0.9359513791491351,
+    "recall": 0.991579990094106,
+    "f1": 0.9629629629629629,
+    "pr_auc": 0.9973295555277228
+  },
+  "attacks": {
+    "n_attacked": 300,
+    "original": {
+      "median_ppl": 16.932392289750517,
+      "tfidf_recall": 0.93
+    },
+    "classic_word_substitution": {
+      "evasion_rate": 0.8233333333333334,
+      "mean_queries": 55.403333333333336,
+      "mean_words_changed": 0.12198483485654286,
+      "semantic_similarity": 0.7949016094207764,
+      "median_ppl": 70.92584285340038,
+      "transfer_evasion_tfidf": 0.14
+    },
+    "llm_1_try": {
+      "evasion_rate": 0.9166666666666666
+    },
+    "llm_adaptive": {
+      "evasion_rate": 1.0,
+      "mean_queries": 1.1,
+      "semantic_similarity": 0.7076678276062012,
+      "median_ppl": 24.571844723997653,
+      "transfer_evasion_tfidf": 0.9966666666666667
+    }
+  },
+  "robust_clean": {
+    "accuracy": 0.9408489048385101,
+    "precision": 0.8994614003590664,
+    "recall": 0.9925705794947994,
+    "f1": 0.9437249823404756,
+    "pr_auc": 0.9958811255520187
+  },
+  "defense": {
+    "recall_on_llm_attacks_before": 0.0,
+    "recall_on_llm_attacks_after": 0.99,
+    "recall_on_classic_attacks_before": 0.17666666666666664,
+    "recall_on_classic_attacks_after": 0.38333333333333336,
+    "adaptive_llm_evasion_before": 1.0,
+    "adaptive_llm_evasion_after": 0.06333333333333334,
+    "false_positive_rate_genuine_before": 0.06777145683898095,
+    "false_positive_rate_genuine_after": 0.1108088053425674
+  }
+}
